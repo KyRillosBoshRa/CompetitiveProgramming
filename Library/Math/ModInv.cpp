@@ -17,3 +17,7 @@ long long pow(long long x, long long e, int mod){
 long long modular_inverse(long long n, int mod){
 	return pow(n % mod, mod-2, mod);
 }
+______________________________________________________
+long long inv(long long a, long long b){
+	return 1 < a ? b - inv(b%a, a) * b / a : 1;
+}
