@@ -37,8 +37,7 @@ class segTree {
     node prt2 = build(2 * idx + 2, m + 1, r);
     return sg[idx] = combine(prt1, prt2);
   }
-  void update_range(int st, int ed, long long val, int idx = 0, int l = 0,
-                    int r = n - 1) {
+  void update_range(int st, int ed, long long val, int idx = 0, int l = 0, int r = n - 1) {
     if (l > r) return;
     if (ed < l || st > r) return;
     if (l >= st && r <= ed) {

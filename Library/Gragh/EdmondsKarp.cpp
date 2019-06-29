@@ -1,5 +1,5 @@
 // O(V E^2)
-const int INF = 1e9+1;
+const int INF = 1e9 + 1;
 const int N = 505;
 vector<vector<int>> capacity;
 vector<vector<int>> adj;
@@ -10,16 +10,15 @@ int bfs(int s, int t) {
   queue<pair<int, int>> q;
   q.push({s, INF});
 
-  while(!q.empty()){
+  while (!q.empty()) {
     int cur = q.front().first;
     int flow = q.front().second;
     q.pop();
-    for(int next: adj[cur]) {
-      if(parent[next] == -1 && capacity[cur][next]) {
+    for (int next : adj[cur]) {
+      if (parent[next] == -1 && capacity[cur][next]) {
         parent[next] = cur;
         int new_flow = min(flow, capacity[cur][next]);
-        if (next == t)
-          return new_flow;
+        if (next == t) return new_flow;
         q.push({next, new_flow});
       }
     }

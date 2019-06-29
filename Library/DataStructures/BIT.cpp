@@ -3,7 +3,7 @@ struct BIT {
   vector<long long> bit;
   BIT(int s = 10) {
     s = 1 << (int)ceil(log2(1.0 * s) + 1e-7);  // make the size pow of 2
-    bit.resize(s);
+    bit.assign(s, 0);
   }
   long long sum(int idx) {
     ++idx;
