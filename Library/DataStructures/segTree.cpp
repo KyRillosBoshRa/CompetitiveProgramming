@@ -32,19 +32,20 @@ class segTree {
       sg[idx] = node(a[l]);
       return sg[idx];
     }
-    int m = l + (r - l) >> 1;
+    int m = l + ((r - l) >> 1);
     node prt1 = build(2 * idx + 1, l, m);
     node prt2 = build(2 * idx + 2, m + 1, r);
     return sg[idx] = combine(prt1, prt2);
   }
-  void update_range(int st, int ed, long long val, int idx = 0, int l = 0, int r = n - 1) {
+  void update_range(int st, int ed, long long val, int idx = 0, int l = 0,
+                    int r = n - 1) {
     if (l > r) return;
     if (ed < l || st > r) return;
     if (l >= st && r <= ed) {
       upd(idx, l, r, val);
       return;
     }
-    int m = l + (r - l) >> 1;
+    int m = l + ((r - l) >> 1);
 
     push_down(idx, l, r, m);
 
@@ -57,7 +58,7 @@ class segTree {
   node query(int st, int ed, int idx = 0, int l = 0, int r = n - 1) {
     if (ed < l || st > r) return node();
     if (l >= st && r <= ed) return sg[idx];
-    int m = l + (r - l) >> 1;
+    int m = l + ((r - l) >> 1);
 
     push_down(idx, l, r, m);
 
