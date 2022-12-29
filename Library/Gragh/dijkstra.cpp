@@ -8,7 +8,9 @@ long long Dijkstra(int source, int distenation) {
   Q.emplace(0, source);
   while (!Q.empty()) {
     int a = Q.top().second;
+    auto d = Q.top().first;
     Q.pop();
+    if(dist[a] != d) continue;
     for (auto u : adj[a]) {
       int b = u.first, w = u.second;
       if (dist[a] + w < dist[b]) {
