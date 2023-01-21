@@ -23,6 +23,6 @@ vector<int> get_factors(int x) {
   }
   if (x != 1) res.push_back(x);
   sort(res.begin(), res.end());
-  res.resize(unique(res.begin(), res.end()));
+  res.resize(unique(res.begin(), res.end()) - res.begin());
   return res;
 }
